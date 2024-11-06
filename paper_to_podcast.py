@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 from templates import enhance_prompt, initial_dialogue_prompt, plan_prompt
 from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
@@ -18,7 +19,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if OPENAI_API_KEY:
     print(f"API Key retrieved successfully")
 else:
-    print("API Key not found")
+    sys.exit("Exit Code 1: API Key not found")
 
 # Initialize the OpenAI API client
 client = OpenAI(api_key=OPENAI_API_KEY)
